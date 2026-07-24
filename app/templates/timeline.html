@@ -103,6 +103,7 @@
 <hr>
 
 <h2>Timeline Posts</h2>
+<div id="error-message" style="color: red; margin-bottom: 15px;"></div>
 <div id="posts"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.19.0/js/md5.min.js"></script>
@@ -144,10 +145,22 @@ document.getElementById("timeline-form").addEventListener("submit", async (event
     formData.append("email", document.getElementById("email").value);
     formData.append("content", document.getElementById("content").value);
 
-    await fetch("/api/timeline_post", {
+    const errorDiv = document.getElementById("error-message");
+    errorDiv.textContent = "";
+
+    const response = await fetch("/api/timeline_post", {
         method: "POST",
         body: formData
     });
+
+    if (!response.ok) {
+        if (response.status === 429) {
+            errorDiv.textContent = "You're posting too fast. Please wait a minute and try again.";
+        } else {
+            errorDiv.textContent = "Something went wrong. Please try again.";
+        }
+        return;
+    }
 
     document.getElementById("timeline-form").reset();
 
