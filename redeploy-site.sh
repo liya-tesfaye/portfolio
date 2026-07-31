@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~/PE_fellowship_portfolio || exit 1
+cd ~/portfolio || exit 1
 
 git fetch && git reset origin/main --hard
 
