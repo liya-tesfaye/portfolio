@@ -2,7 +2,7 @@ member = {
     "name": "Liya",
     "image": "img/Liya/profile.webp",
     "about": (
-        "I'm Liya Tesfaye, a sophomore at Dakota State University pursuing a B.S. in "
+        "I'm Liya Tesfaye, a student at Dakota State University pursuing a B.S. in "
         "Computer Science and Cyber Operations. I'm passionate about system, infrastructure, and cyber security. "
         "I build low-level security tools and projects, compete in national cybersecurity competitions, "
         "and mentor the next generation of women in tech through CybHER."
