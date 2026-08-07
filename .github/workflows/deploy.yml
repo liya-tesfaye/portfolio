@@ -64,3 +64,10 @@ jobs:
 
       - name: Discord Success Message
         run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content= Deployment Successful"
+
+      - name: Discord Failed Notification
+        if: failure()
+        run: |
+          curl -H "Content-Type: application/json" \
+          -d '{"content":"🚨 Deployment Failed"}' \
+          ${{ secrets.DISCORD_WEBHOOK }}
