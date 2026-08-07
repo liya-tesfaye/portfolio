@@ -31,3 +31,5 @@ jobs:
       - name: Deploy site
         run: ssh my-vps '~/redeploy-site.sh'
 
+      - name: Print Container Status
+        run: ssh my-vps 'docker-compose ps'
